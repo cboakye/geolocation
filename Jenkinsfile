@@ -31,10 +31,10 @@ pipeline {
                 } 
             }
         }
-        stage('Deploy image') {
+       stage('Deploy image') {
             steps{
                 script{ 
-                    docker.withRegistry('https://436480449334.dkr.ecr.us-east-1.amazonaws.com/devops_repository') {
+                    docker.withRegistry("https://436480449334.dkr.ecr.us-east-1.amazonaws.com","ecr:us-east-1:"devops_repository") {
                         dockerImage.push()
                     }
                 }
